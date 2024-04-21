@@ -1,4 +1,4 @@
-const Arrow = ({ onClick, style }) => {
+const Arrow = ({ onClick, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -7,17 +7,18 @@ const Arrow = ({ onClick, style }) => {
       y="0"
       version="1.1"
       viewBox="0 0 29 29"
-      xml:space="preserve"
+      xmlSpace="preserve"
       onClick={onClick}
-      style={style}
+      className={className}
+      style={{ transition: "all 0.25s ease" }}
     >
       <path
         fill="none"
         stroke="#000"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-miterlimit="10"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="2"
         d="m20.5 11.5-6 6-6-6"
       ></path>
     </svg>

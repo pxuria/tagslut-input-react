@@ -1,18 +1,17 @@
-import { useState } from "react";
-import languages from "./constants/languages.json";
+import { useState, useEffect } from "react";
+import { programming_languages } from "./constants/languages.json";
 import Arrow from "./components/UI/Arrow";
+import XButton from "./components/UI/XButton";
 
 import "./App.css";
 
-function App() {
-  const langs = JSON.stringify(languages);
-  console.log(langs.programming_languages);
+const App = () => {
   const [inputVal, setInputVal] = useState("");
-  const [toggleSuggestions, setToggleSuggestions] = useState(false);
-  const [suggestions, setSuggestions] = useState([]);
-  const [arrow, setArrow] = useState(null);
+  const [skills, setSkills] = useState([]);
+  const [toggleSuggestions, setToggleSuggestions] = useState(true);
+  const [arrowClass, setArrowClass] = useState(false);
 
-  const onChangeHandler = () => {};
+  useEffect(() => {}, []);
 
   const changeDataHandler = (e) => {
     setInputVal(e.target.value);
@@ -24,9 +23,14 @@ function App() {
     return;
   };
 
+  const addSkill = (newItem) => {
+    setSkills((prev) => [...prev, newItem]);
+    setToggleSuggestions(false);
+  };
+
   return (
     <>
-      {/* input */}
+      {/* tagslut input */}
       <div className="tagslut">
         <div>
           <label htmlFor="tagslut" className="tagslut-label">
@@ -44,7 +48,8 @@ function App() {
               autoComplete="off"
             />
             {/* <span className="divider">|</span> */}
-            <Arrow onClick={() => {}} style={{}} />
+
+            <Arrow onClick={() => setArrowClass(!arrowClass)} className={arrowClass ? "ratation" : ""} />
           </div>
         </div>
       </div>
@@ -53,19 +58,28 @@ function App() {
       {toggleSuggestions && (
         <div className="tagslut-list">
           <div className="tagslut-items">
-            {suggestions.map((item, index) => (
-              <div className="tagslut-item" key={index}></div>
+            {programming_languages.map((item, index) => (
+              <div className="tagslut-item" key={index} onClick={() => addSkill(item)}>
+                <span>{item}</span>
+              </div>
             ))}
           </div>
         </div>
       )}
 
       {/* tagslut list */}
-      <div className="">
-        <div className="">{}</div>
+      <div className="skills">
+        <div className="skills-list">
+          {skills.map((item, index) => (
+            <div className="skills-item" key={index}>
+              <span className="">{item}</span>
+              <XButton className="skill-del" onClick={() => {}} />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default App;
