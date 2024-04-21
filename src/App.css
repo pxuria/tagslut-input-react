@@ -1,0 +1,76 @@
+.tagslut {
+  margin-top: 2rem;
+}
+
+.tagslut:first {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.tagslut-label {
+  color: #444;
+  font-weight: normal;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.tagslut-fields {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+  width: 40vw;
+  background: #f8f9fa;
+  position: relative;
+}
+
+/* .divider {
+  font-weight: bold;
+  position: absolute;
+  right: 7%;
+  height: 32px;
+  color: #444;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.tagslut-fields svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translate(-50%, -50%);
+}
+
+.tagslut-input {
+  background: transparent;
+  border-radius: 8px;
+  padding: 4px;
+  outline: none;
+  border: 2px solid #186bfe;
+  width: 100%;
+  height: 2rem;
+  position: relative;
+}
+
+.tagslut-list {
+  border: 2px solid #d9d9d9;
+  padding: 8px;
+  border-radius: 8px;
+  overflow-y: scroll;
+  min-height: 10rem;
+  position: relative;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.tagslut-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagslut-item {
+  width: 100%;
+}
