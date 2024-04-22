@@ -1,0 +1,46 @@
+.tagslut-list {
+  border: 2px solid #d9d9d9;
+  border-radius: 8px;
+  min-height: 10rem;
+  height: 24rem;
+  position: relative;
+  z-index: 10;
+  margin-top: 0.5rem;
+  overflow-y: scroll;
+  width: 75vw;
+  scroll-behavior: smooth;
+}
+
+.tagslut-list::-webkit-scrollbar {
+  width: 7px;
+}
+
+.tagslut-list::-webkit-scrollbar-thumb {
+  background: #999;
+  height: 140px;
+  border-radius: 8px;
+}
+
+.tagslut-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tagslut-item {
+  width: 100%;
+  cursor: pointer;
+  padding: 0.7rem;
+  color: #333;
+  font-weight: normal;
+  transition: all 0.25s ease;
+  background-color: transparent;
+}
+
+.tagslut-item:hover {
+  background-color: rgba(13, 96, 240, 0.2);
+}
+
+.tagslut-item span {
+  font-size: 1.2rem;
+}

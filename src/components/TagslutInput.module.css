@@ -1,0 +1,54 @@
+.tagslut {
+  margin-top: 2rem;
+}
+
+.tagslut:first {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.tagslut-label {
+  color: #777;
+  font-weight: normal;
+  font-size: 1em;
+}
+
+.tagslut-fields {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+  width: 75vw;
+  background: #f8f9fa;
+  position: relative;
+}
+
+.tagslut-fields svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translate(-50%, -50%);
+}
+
+.tagslut-input {
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  outline: none;
+  border: 2px solid #0d60f0;
+  width: 100%;
+  height: 2.8rem;
+  position: relative;
+  font-size: 1em;
+  color: #333;
+}
+
+.tagslut-fields-guide {
+  font-size: 0.7em;
+  font-weight: normal;
+  margin-top: 0.2rem;
+  color: #333;
+}

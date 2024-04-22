@@ -1,0 +1,42 @@
+.skills {
+  border: 2px solid #d9d9d9;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.2rem;
+  max-width: 75vw;
+}
+
+.skills-list {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.5rem;
+  min-height: 4rem;
+}
+
+.skills-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 1rem;
+  background-color: #0d60f0;
+  color: #f8f9fa;
+  border-radius: 4px;
+  min-width: 6rem;
+  min-height: 2.2rem;
+}
+
+.skill-del {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+}
+
+.skills-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
