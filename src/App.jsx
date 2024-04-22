@@ -9,7 +9,6 @@ import "./App.css";
 const App = () => {
   const [inputVal, setInputVal] = useState("");
   const [skills, setSkills] = useState([]);
-  const [languages, setLanguages] = useState(programming_languages);
   const [suggestionLang, setSuggestionLang] = useState(programming_languages);
   const [toggleSuggestions, setToggleSuggestions] = useState(false);
 
@@ -23,20 +22,13 @@ const App = () => {
 
     // filter suggestions
     if (value === "") {
-      const newSuggestions = languages.filter((item) => !skills.includes(item));
+      const newSuggestions = programming_languages.filter((item) => !skills.includes(item));
       setSuggestionLang(newSuggestions);
     }
-    const filteredSuggestions = languages.filter((suggestion) =>
+    const filteredSuggestions = programming_languages.filter((suggestion) =>
       suggestion.toLowerCase().startsWith(value.toLowerCase())
     );
     setSuggestionLang(filteredSuggestions);
-  };
-
-  // check Enter key pressing
-  const onKeyDownHandler = (e) => {
-    const key = e.keyCode;
-    if (key === 13) addSkillHandler(inputVal);
-    return;
   };
 
   // add skill Handler
@@ -61,19 +53,8 @@ const App = () => {
     tagslutRef.current.blur();
   };
 
-  // delete skill Handler
-  const deleteSkillHandler = (item) => {
-    const newSkills = [...skills];
-    const skillIndex = skills.findIndex((lang) => lang === item);
-
-    if (skillIndex !== -1) {
-      newSkills.splice(skillIndex, 1);
-      setSkills(newSkills);
-    }
-  };
-
   const inputFocusHandler = () => {
-    const newSuggestions = languages.filter((item) => !skills.includes(item));
+    const newSuggestions = programming_languages.filter((item) => !skills.includes(item));
     setSuggestionLang(newSuggestions);
     setToggleSuggestions(true);
   };
@@ -83,7 +64,7 @@ const App = () => {
       {/* tagslut input */}
       <TagSlutInput
         setToggleSuggestions={setToggleSuggestions}
-        onKeyDownHandler={onKeyDownHandler}
+        addSkillHandler={addSkillHandler}
         inputVal={inputVal}
         changeDataHandler={changeDataHandler}
         toggleSuggestions={toggleSuggestions}
@@ -95,7 +76,7 @@ const App = () => {
       {toggleSuggestions && <TagslutSuggestions suggestionLang={suggestionLang} addSkillHandler={addSkillHandler} />}
 
       {/* tagslut list */}
-      <TagslutSkill skills={skills} deleteSkillHandler={deleteSkillHandler} />
+      <TagslutSkill skills={skills} setSkills={setSkills} />
     </>
   );
 };

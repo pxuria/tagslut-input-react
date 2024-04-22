@@ -4,13 +4,20 @@ import classes from "./TagslutInput.module.css";
 
 const TagslutInput = ({
   setToggleSuggestions,
-  onKeyDownHandler,
+  addSkillHandler,
   inputVal,
   changeDataHandler,
   toggleSuggestions,
   tagslutRef,
   inputFocusHandler,
 }) => {
+  // check Enter key pressing
+  const onKeyDownHandler = (e) => {
+    const key = e.keyCode;
+    if (key === 13) addSkillHandler(inputVal);
+    return;
+  };
+
   return (
     <>
       {/* tagslut input */}
