@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { programming_languages } from "./constants/languages.json";
 import TagSlutInput from "./components/TagSlutInput";
 import TagslutSuggestions from "./components/TagslutSuggestions";
@@ -12,7 +12,21 @@ const App = () => {
   const [suggestionLang, setSuggestionLang] = useState(programming_languages);
   const [toggleSuggestions, setToggleSuggestions] = useState(false);
 
-  const tagslutRef = useRef(null);
+  const tagslutInputRef = useRef(null);
+  const tagslutSuggestionsRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (tagslutSuggestionsRef.current && !tagslutSuggestionsRef.current.contains(event.target)) {
+        setToggleSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // onChangeHandler
   const changeDataHandler = (e) => {
@@ -50,7 +64,7 @@ const App = () => {
     // reseting
     setToggleSuggestions(false);
     setInputVal("");
-    tagslutRef.current.blur();
+    tagslutInputRef.current.blur();
   };
 
   const inputFocusHandler = () => {
@@ -68,12 +82,18 @@ const App = () => {
         inputVal={inputVal}
         changeDataHandler={changeDataHandler}
         toggleSuggestions={toggleSuggestions}
-        tagslutRef={tagslutRef}
+        tagslutRef={tagslutInputRef}
         inputFocusHandler={inputFocusHandler}
       />
 
       {/* suggestions list */}
-      {toggleSuggestions && <TagslutSuggestions suggestionLang={suggestionLang} addSkillHandler={addSkillHandler} />}
+      {toggleSuggestions && (
+        <TagslutSuggestions
+          suggestionLang={suggestionLang}
+          addSkillHandler={addSkillHandler}
+          tagslutRef={tagslutSuggestionsRef}
+        />
+      )}
 
       {/* tagslut list */}
       <TagslutSkill skills={skills} setSkills={setSkills} />

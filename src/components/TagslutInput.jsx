@@ -10,6 +10,7 @@ const TagslutInput = ({
   toggleSuggestions,
   tagslutRef,
   inputFocusHandler,
+  className,
 }) => {
   // check Enter key pressing
   const onKeyDownHandler = (e) => {
@@ -21,12 +22,12 @@ const TagslutInput = ({
   return (
     <>
       {/* tagslut input */}
-      <div className={classes.tagslut}>
+      <div className={`${classes.tagslut} ${className}`}>
         <div>
           <label htmlFor="tagslut" className={classes["tagslut-label"]}>
             Skills*
           </label>
-          <div className={classes["tagslut-fields"]}>
+          <div className={`${classes["tagslut-fields"]} ${className}`}>
             <input
               type="text"
               id="tagslut"
